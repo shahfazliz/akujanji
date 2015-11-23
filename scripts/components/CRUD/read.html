@@ -1,0 +1,61 @@
+<h3>{{ ctrl.title }}</h3>
+
+<div class='row'>
+    <!-- Image Placeholder -->
+    <div ng-if="ctrl.style.imageClassWidth > 0"
+         class="form-group col-xs-{{ ctrl.style.imageClassWidth }}">
+        <img src="https://placehold.it/150x500" alt="image placeholder" class="img-rounded">
+        <!--<img src="..." alt="..." class="img-circle">-->
+        <!--<img src="..." alt="..." class="img-thumbnail">-->
+    </div>
+    
+    <!-- Other than Image Placeholder -->
+    <div class="col-xs-{{ 12 - ctrl.style.imageClassWidth }}">
+        
+        <!-- Repeat each item in Model -->
+        <div class="row"
+             ng-repeat="(modelKey, modelValue) in ctrl.model.properties track by $index" 
+             ng-hide="modelValue.hide">
+            
+            <!-- Model item in label -->
+            <label class="col-xs-{{ ctrl.style.labelClassWidth }}"
+                   ng-if="modelValue.type">{{ modelKey }}<strong ng-if="modelValue.required" style="color:red;">*</strong></label>
+            
+            <!-- Input type = file -->
+            <!--<div class="col-xs-{{ ctrl.style.inputClassWidth }}" -->
+            <!--     ng-if="modelValue.type=='file'">-->
+            <!--    <div class="form-control">-->
+            <!--        <input type="file" -->
+            <!--           accept="{{ modelValue.accept }}"-->
+            <!--           placeholder="Click to select file"-->
+            <!--           ng-model="modelValue.value"-->
+            <!--           ng-disabled="modelValue.disabled"-->
+            <!--           style="width:100%;"-->
+            <!--           ng-change="modelValue.onChange()"/>-->
+            <!--    </div>-->
+            <!--    <debugging enable="ctrl.debugging" value="modelValue.value"/>-->
+            <!--</div>-->
+            
+            <div class="col-xs-{{ ctrl.style.inputClassWidth }}">
+                <!-- Inline editor directive will display editable label based on type -->
+                <inline-editor type="modelValue.type"
+                               disabled="modelValue.disabled"
+                               value="modelValue.value"
+                               options="modelValue.options"
+                               placeholder="modelKey"
+                               on-click="ctrl.onClick('Update', params)"/>
+                <debugging enable="ctrl.debugging" value="modelValue.value"/>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-xs-offset-{{ ctrl.style.labelClassWidth }} col-xs-{{ ctrl.style.inputClassWidth }}">
+                <button type="submit" 
+                        class="btn btn-default" 
+                        ng-click="ctrl.onClick('Remove')">
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

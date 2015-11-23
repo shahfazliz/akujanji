@@ -1,0 +1,60 @@
+<h3>{{ ctrl.title }}</h3>
+<form class="form-horizontal">
+    
+    <!-- Image Placeholder -->
+    <div ng-if="ctrl.style.imageClassWidth > 0"
+         class="form-group col-xs-{{ ctrl.style.imageClassWidth }}">
+        <img src="https://placehold.it/150x500" alt="image placeholder" class="img-rounded">
+        <!--<img src="..." alt="..." class="img-circle">-->
+        <!--<img src="..." alt="..." class="img-thumbnail">-->
+    </div>
+    
+    <!-- Other than Image Placeholder -->
+    <div class="col-xs-{{ 12 - ctrl.style.imageClassWidth }}">
+        
+        <div class="form-group">
+            
+            <!-- Username -->
+            <label class="col-xs-{{ ctrl.style.labelClassWidth }} control-label">Username</label>
+            
+            <div class="col-xs-{{ ctrl.style.inputClassWidth }}">
+                
+                <!-- Input type -->
+                <input type="text" 
+                       placeholder="Username" 
+                       ng-model="ctrl.model.properties.Username.value"
+                       class="form-control"/>
+                       
+                <debugging enable="ctrl.debugging" value="ctrl.model.properties.Username.value"/>
+            </div>
+        </div>
+        
+        <!-- Repeat each item in Model -->
+        <div class="form-group">
+            
+            <!-- Model item in label -->
+            <label class="col-xs-{{ ctrl.style.labelClassWidth }} control-label">Password</label>
+            
+            <div class="col-xs-{{ ctrl.style.inputClassWidth }}">
+                
+                <!-- Input Password -->
+                <input type="password" 
+                       placeholder="Password" 
+                       ng-model="ctrl.model.properties.Password.value"
+                       class="form-control"/>
+                       
+                <debugging enable="ctrl.debugging" value="ctrl.model.properties.Password.value"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-xs-offset-{{ ctrl.style.labelClassWidth }} col-xs-{{ ctrl.style.inputClassWidth }}">
+                <button type="submit" 
+                        class="btn btn-default" 
+                        ng-click="ctrl.onClick('Login')">
+                    Login
+                </button>
+            </div>
+        </div>
+    </div>
+</form>

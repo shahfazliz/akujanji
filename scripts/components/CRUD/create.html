@@ -1,0 +1,99 @@
+<h3>{{ ctrl.title }}</h3>
+<form class="form-horizontal">
+    
+    <!-- Image Placeholder -->
+    <div ng-if="ctrl.style.imageClassWidth > 0"
+         class="form-group col-xs-{{ ctrl.style.imageClassWidth }}">
+        <img src="https://placehold.it/150x500" alt="image placeholder" class="img-rounded">
+        <!--<img src="..." alt="..." class="img-circle">-->
+        <!--<img src="..." alt="..." class="img-thumbnail">-->
+    </div>
+    
+    <!-- Other than Image Placeholder -->
+    <div class="col-xs-{{ 12 - ctrl.style.imageClassWidth }}">
+        
+        <!-- Repeat each item in Model -->
+        <div class="form-group"
+             ng-repeat="(modelKey, modelValue) in ctrl.model.properties track by $index" 
+             ng-hide="modelValue.hide">
+            
+            <!-- Model item in label -->
+            <label class="col-xs-{{ ctrl.style.labelClassWidth }} control-label">
+                {{ modelKey }}
+                <strong ng-if="modelValue.required" style="color:red;">*</strong>
+            </label>
+            
+            <div class="col-xs-{{ ctrl.style.inputClassWidth }}"
+                 ng-switch="modelValue.type">
+                
+                <!-- Input type = file -->
+                <div ng-switch-when="file"
+                     class="form-control">
+                    <input type="file" 
+                       accept="{{ modelValue.accept }}"
+                       placeholder="Click to select file"
+                       ng-model="modelValue.value"
+                       ng-disabled="modelValue.disabled"
+                       style="width:100%;"/>
+                </div>
+                
+                <!-- Input type = radio -->
+                <div ng-switch-when="radio"
+                     ng-repeat="radioOption in modelValue.options">
+                    <input type="radio" 
+                           ng-model="modelValue.value"
+                           value="{{ radioOption }}"
+                           ng-disabled="modelValue.disabled"/>
+                    {{ radioOption }}
+                </div>
+                
+                <!-- Input type = select -->
+                <select ng-switch-when="select"
+                        ng-model="modelValue.value"
+                        class="form-control"
+                        ng-options="item.label for item in modelValue.options track by item.id"
+                        ng-disabled="modelValue.disabled">
+                </select>
+                
+                <!-- Input type = checkbox -->
+                <div ng-switch-when="checkbox"
+                     ng-init="modelValue.value = modelValue.options"
+                     ng-repeat="(checkboxItem, checkboxValue) in modelValue.options" >
+                    <input type="checkbox"
+                           ng-model="modelValue.value[checkboxItem]"
+                           ng-disabled="modelValue.disabled"/>
+                    {{ checkboxItem }}
+                </div>
+                
+                <!-- Input type = textarea -->
+                <textarea ng-switch-when="textarea"
+                          placeholder="{{ modelKey }}" 
+                          ng-model="modelValue.value"
+                          class="form-control"
+                          rows="{{ modelValue.rows }}"
+                          ng-disabled="modelValue.disabled">
+                </textarea>
+                
+                <!-- Other Input type -->    
+                <input ng-switch-default
+                       type="{{ modelValue.type }}" 
+                       placeholder="{{ modelKey }}" 
+                       ng-model="modelValue.value"
+                       class="form-control"
+                       ng-disabled="modelValue.disabled"/>
+                       
+                <debugging enable="ctrl.debugging" value="modelValue.value"/>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col-xs-offset-{{ ctrl.style.labelClassWidth }} col-xs-{{ ctrl.style.inputClassWidth }}">
+                <button type="submit" 
+                        class="btn btn-default" 
+                        ng-click="ctrl.onClick('Create')">
+                    {{ ctrl.title }}
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
