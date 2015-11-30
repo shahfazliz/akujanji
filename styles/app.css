@@ -1,0 +1,181 @@
+html,body {
+    height:100%;
+    overflow-y: hidden;
+}
+
+.header {
+    height: 10%;
+    width: 100%;
+}
+
+.fullHeight {
+    height: 100%;
+}
+
+.main {
+    height: 90%;
+}
+
+.main div .row {
+    height: 100%;
+    overflow: hidden;
+}
+
+.main .row .sidebar {
+    /*background-color: red;*/
+    padding: 0;
+    height:100%;
+    overflow: hidden;
+}
+
+.main .row .content {
+    /*background-color: green;*/
+    height: 100%;
+    padding-left:0;
+    padding-right: 0;
+    overflow: scroll;
+    overflow-x:hidden;
+    -webkit-box-shadow: 6px 0px 5px -5px #999,-6px 0px 5px -5px #999;
+    -moz-box-shadow: 6px 0px 5px -5px #999,-6px 0px 5px -5px #999;
+    box-shadow: 6px 0px 5px -5px #999,-6px 0px 5px -5px #999;
+}
+
+.manifesto-navbar {
+    background-color: #005ea5;
+    border-color: #005ea5;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+.manifesto-brand {
+    font-size: 1.5em;
+    letter-spacing: 0.125em;
+    font-weight:800;
+}
+
+.second-navbar {
+    top: 50px;
+    background-color: #1c1d22;
+    border-color:#1c1d22;
+    font-size: 1em;
+    letter-spacing: 0.125em;
+    font-family: 'Open Sans', sans-serif;
+    
+    -webkit-box-shadow: 0 4px 4px -4px #999;
+    -moz-box-shadow: 0 4px 4px -4px #999;
+    box-shadow: 0 4px 4px -4px #999;
+}
+
+.second-navbar .navbar-brand .position {
+    font-size: 0.75em;
+    font-style: italic;
+    letter-spacing: 0em;
+    font-weight: 300;
+}
+
+
+.manifesto-navbar .navbar-brand, .second-navbar .navbar-brand {
+    color: #fff;
+}
+
+.candidate-picture {
+    width: 100%;
+    height: 55%;
+    padding: 0;
+}
+
+.stats {
+    width: 100%;
+    height: 45%;
+    background-color: #dee0e2;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.stats .container {
+    height: 100%;
+}
+
+.img-fluid {
+    width: 100%;
+    height: 100%;
+    /*opacity: 0.9;*/
+}
+
+.social-media {
+    padding-right: 2em;
+}
+
+.manifesto-progress {
+    padding-top: 1em;
+}
+
+.manifesto-navbar div ul.navbar-nav li.active a{
+    background-color: #1c1d22;
+}
+
+.fa-facebook, .fa-twitter {
+    padding-right: .875em;
+}
+
+.fa-facebook, .fa-twitter, .fa-compass {
+    color: #fff;
+    padding-top: 1em;
+}
+
+table {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.grow {
+    width: 85%;
+}
+
+.table {
+    /*color: gray;*/
+}
+
+.table > tbody > tr > td.hourglass {
+    padding: 15px 0 15px 5px;
+}
+
+.table > tbody > tr > td.comments {
+    padding: 15px 10px 15px 0;
+    text-align: right;
+    font-size: 0.8125em;
+}
+
+.progress {
+    margin-bottom: 10px;
+}
+
+.progress-title {
+    font-size: .875em;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+
+.hourglass-progress-title,.achieved-progress-title, .in-progress-title, .broken-progress-title, .days-office-title {
+    padding-left: 10px;
+    /*font-weight: bold;*/
+}
+
+.hourglass-progress-title,.achieved-progress-title, .in-progress-title, .broken-progress-title {
+    padding-bottom: 10px;
+}
+
+.achieved,.fa-check-circle-o {
+    color: green;
+}
+
+.broken, .fa-ban {
+    color: red;
+}
+
+.in-progress, .fa-cogs {
+    color: orange;
+}
+
+.not-started {
+    background-color: #000;
+}

@@ -23,6 +23,14 @@ angular.module('AkuJanji').directive('inlineEditor', [function(){
             inputDisabled   : '=disabled',
             actionClick     : '&onClick'
         },
+        controller: [function(){
+            var self = this;
+            
+            self.setTemporary = function(object){
+                self.temporary = angular.copy(object);
+            };
+        }],
+        controllerAs: 'inlineCtrlDirective',
         templateUrl: '/scripts/components/InlineEditor/inlineEditor.html'
     };
 }]);

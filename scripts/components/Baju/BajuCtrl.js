@@ -1,20 +1,20 @@
 /*
-    Created by jebat on 19/11/2015
-    Last updated by jebat on 19/11/2015
+    Created by jebat on 26/10/2015
+    Last updated by jebat on 27/11/2015
     
     Description:
-    This controller is a View Model side of MVVM pattern for Role that will
+    This controller is a View Model side of MVVM pattern for BajuNiaga that will
     interface Model with template.
 */
 
 /*global angular*/
 'use strict';
-angular.module('AkuJanji').controller('RoleCtrl', ['$log','$state','Role','CRUD',function($log,$state,Role,CRUD){
+angular.module('AkuJanji').controller('BajuCtrl', ['$log','$state','Baju','CRUD',function($log,$state,Baju,CRUD){
     var self = this;
     
     self.title      = $state.current.data.title;
     self.debugging  = $state.current.data.debugging;
-    self.model      = Role;
+    self.model      = Baju;
     self.style      = {
         imageClassWidth: 3,
         labelClassWidth: 3,
@@ -32,6 +32,9 @@ angular.module('AkuJanji').controller('RoleCtrl', ['$log','$state','Role','CRUD'
                 // If Sucess
                 function(sucessData){
                     $log.info('sucessData', sucessData);
+                    
+                    // Re direct to id from sucessData
+                    $state.go('baju.read.id', {id:sucessData.id});
                 },
                 // If Fail
                 function(failData){
@@ -44,7 +47,7 @@ angular.module('AkuJanji').controller('RoleCtrl', ['$log','$state','Role','CRUD'
             CRUD.read(self.model, params,
                 // If Sucess
                 function(sucessData){
-                    $log.info('sucessData',sucessData);
+                    $log.info('sucessData', sucessData);
                 },
                 // If Fail
                 function(failData){
@@ -61,7 +64,7 @@ angular.module('AkuJanji').controller('RoleCtrl', ['$log','$state','Role','CRUD'
                 // If Sucess
                 function(sucessData){
                     self.model.properties[params[0]].value = params[1];
-                    $log.info('sucessData',sucessData);
+                    $log.info('sucessData', sucessData);
                 },
                 // If Fail
                 function(failData){
@@ -74,7 +77,7 @@ angular.module('AkuJanji').controller('RoleCtrl', ['$log','$state','Role','CRUD'
             CRUD.remove(self.model, $state.params,
                 // If Sucess
                 function(sucessData){
-                    $log.info('sucessData',sucessData);
+                    $log.info('sucessData', sucessData);
                 },
                 // If Fail
                 function(failData){
@@ -84,5 +87,5 @@ angular.module('AkuJanji').controller('RoleCtrl', ['$log','$state','Role','CRUD'
     };
     
     // Initialize Model
-    if($state.params) CRUD.read(self.model, $state.params);
+    if($state.params) actions.Read($state.params);
 }]);

@@ -1,23 +1,191 @@
-<div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#/">Splendid!<span class="glyphicon glyphicon-ok"></span></a></p>
+<!--<div class='container' style='border:1px solid black;'>-->
+  <!-- Title? -->
+<!--  <div class='row' style='border-bottom:1px dashed black;'>-->
+<!--    <div class='col-xs-12'>Example table</div>-->
+<!--  </div>-->
+  <!-- Header? -->
+<!--  <div class='row' style='border-bottom:1px dashed black;'>-->
+<!--    <div class='col-xs-4' style='border-right:1px dotted black;'>Col 1</div>-->
+<!--    <div class='col-xs-4' style='border-right:1px dotted black;'>Col 2</div>-->
+<!--    <div class='col-xs-4'>Col 3</div>-->
+<!--  </div>-->
+  <!-- Content -->
+<!--  <div class='row' style='border-bottom:1px dashed black;'>-->
+<!--    <div class='col-xs-4' style='border-right:1px dotted black;'>item 1</div>-->
+<!--    <div class='col-xs-4' style='border-right:1px dotted black;'>item 2</div>-->
+<!--    <div class='col-xs-4'>item 3</div>-->
+<!--  </div>-->
+  <!-- Footer? -->
+<!--  <div class='row'>-->
+<!--    <div class='col-xs-12'>Example footer</div>-->
+<!--  </div>-->
+<!--</div>-->
+
+
+<div class="row">
+    <div class="col-md-3 sidebar">
+      <!-- https://placeholdit.imgix.net/~text?txtsize=33&txt=MinisterPic&w=570&h=571 -->
+      <div class="col-md-12 candidate-picture">
+        <img src="../images/candidates/kj.jpg" class="img-fluid">
+      </div>
+      <div class="col-md-12 stats">
+          <div class="manifesto-progress">
+            <div class="progress-title" style="padding-bottom: 15px;">
+              <i class="fa fa-calendar"></i></td><span class="days-office-title">Days in Office: 789</span>
+             <!--<div><span>Days in Office:</span><span>926 days</span></div>-->
+            </div>
+            <div class="progress-title">
+              <i class="fa fa-hourglass-start"></i></td><span class="hourglass-progress-title">Not Yet Started: 140 of 180</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar not-started" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%">
+                <span class="sr-only">90% Complete</span>
+              </div>
+            </div>
+            <div class="progress-title">
+              <i class="fa fa-check-circle-o"></i></td><span class="achieved-progress-title">Achieved: 10 of 180</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+                <span class="sr-only">10% Complete (success)</span>
+              </div>
+            </div>
+            <div class="progress-title">
+              <i class="fa fa-cogs"></i></td><span class="in-progress-title">In Progress: 50 of 180</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                <span class="sr-only">60% Complete (warning)</span>
+              </div>
+            </div>
+            <div class="progress-title">
+              <i class="fa fa-ban"></i></td><span class="broken-progress-title">Broken: 85 of 180</span>
+            </div>
+            <div class="progress">
+              <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+                <span class="sr-only">30% Complete (danger)</span>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-9 content">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <!--<th></th>-->
+              <th colspan="3">Youth Development</th>
+              <!--<th></th>-->
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="in-progress">
+              <td class="hourglass"><i class="fa fa-cogs" title="Not started"></i></td>
+              <td class="grow" style="">Memberi perkhidmatan yang bersih, cekap, tepat dan cepat dalam suasana mesra serta 
+              bersedia membantu anda apabila anda membuat aduan mengenai perkhidmatan kami</td>
+              <td class="comments">12 comments</td>
+            </tr>
+            <tr>
+              <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>
+              <td class="grow" style="">Bersedia memberi maklumat berhubung dengan jenis-jenis bantuan perkhidmatan, latihan dan kemudahan di bawah program pembangunan belia.</td>
+              <td class="comments">32 comments</td>
+            </tr>
+            <tr class="achieved">
+              <td class="hourglass"><i class="fa fa-check-circle-o" title="Achieved"></i></td>
+              <td class="grow" style="">Bersedia memberi bimbingan dan khidmat nasihat dan melaksanakan sebarang aktiviti/ program pembangunan belia selaras dengan sadar dan wawasan belia negara.</td>
+              <td class="comments">2 comments</td>
+            </tr>
+            <tr>
+              <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>
+              <td class="grow" style="">Memproses dan memberi kelulusan permohonan bantuan projek/aktiviti (OS 42000) di bawah RM 30,000 kepada pertubuhan /persatuan belia dalam masa satu (1) bulan.</td>
+              <td class="comments">21 comments</td>
+            </tr>
+            <tr>
+              <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>
+              <td class="grow" style="">Memproses dan memperakukan kepada urus setia bantuan peringkat kementerian semua permohonan bantuan projek/aktiviti (OS 42000) melebihi RM 30,000 dalam masa dua (2) bulan.</td>
+              <td class="comments">1 comments</td>
+            </tr>
+            <!--<tr>-->
+            <!--  <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>-->
+            <!--  <td class="grow" style="">Membantu dan memantau pertubuhan/persatuan belia peringkat kebangsaan serta mengaktifkan persatuan yang lemah.</td>-->
+            <!--  <td class="comments">11 comments</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--  <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>-->
+            <!--  <td class="grow" style="">Memaklumkan penerimaan permohonan pinjaman Tabung Ekonomi Belia (TEB) dalam tempoh dua (2) bulan.</td>-->
+            <!--  <td class="comments">21 comments</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--  <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>-->
+            <!--  <td class="grow" style="">Melaksanakan penguatkuasaan bayaran balik pinjaman Tabung Ekonomi Belia (TEB) dengan adil dan saksama tanpa prasangka.</td>-->
+            <!--  <td class="comments">21 comments</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--  <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>-->
+            <!--  <td class="grow" style="">Menimbang dan menawarkan kepada belia-belia bagi menyertai program pembangunan belia di dalam dan di luar negara dengan seadil-adilnya.</td>-->
+            <!--  <td class="comments">51 comments</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--  <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>-->
+            <!--  <td class="grow" style="">Meningkatkan penyertaan belia dalam pelbagai program dan aktiviti sihat serta menanamkan semangat perpaduan, setiakawan dan kekitaan.</td>-->
+            <!--  <td class="comments">41 comments</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--  <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>-->
+            <!--  <td class="grow" style="">Memberi peluang seluas mungkin kepada belia-belia bagi menyertai aktiviti gaya hidup sihat.</td>-->
+            <!--  <td class="comments">5 comments</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--  <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>-->
+            <!--  <td class="grow" style="">Memupuk sikap dan nilai murni serta semangat patriotisme dan menyemai serta menyemarakkan semangat kesukarelaan di kalangan melalui perlaksanaan program/aktiviti.</td>-->
+            <!--  <td class="comments">15 comments</td>-->
+            <!--</tr>-->
+            <!--<tr>-->
+            <!--  <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>-->
+            <!--  <td class="grow" style="">Mempastikan latihan yang dijalankan di semua peringkat mengikut modul yang disediakan</td>-->
+            <!--  <td class="comments">12 comments</td>-->
+            <!--</tr>-->
+          </tbody>
+          <thead>
+            <tr>
+              <!--<th></th>-->
+              <th colspan="3">Sports Development</th>
+              <!--<th></th>-->
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>
+              <td class="grow" style="">Memproses dan meluluskan permohonan bantuan peruntukan projek / aktivit (PK42000) daripada persatuan-persatuan sukan dalam tempoh dua bulan daripada tarikah permohonan lengkap diterima</td>
+              <td class="comments">12 comments</td>
+            </tr>
+            <tr class="broken">
+              <td class="hourglass"><i class="fa fa-ban" title="Broken"></i></td>
+              <td class="grow" style="">Menyediakan kalender aktivit tahunan selewat-lewatnya pada bulan Februari setiap tahun untuk dilaksanakan di peringkat Kebangsaan, Negeri dan Daerah</td>
+              <td class="comments">42 comments</td>
+            </tr>
+            <tr>
+              <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>
+              <td class="grow" style="">Menyediakan laporan lengkap berkitan dengan perlaksanaan program / aktiviti dalam tempoh empat belas (14) hari selepas program / aktivit selesai</td>
+              <td class="comments">22 comments</td>
+            </tr>
+            <tr>
+              <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>
+              <td class="grow" style="">Bersedia memberi bimbingan dan khidmat dalam sebarang aktivit Sukan Massa selaras dengan Dasar Sukan Negara dan wawaan Negara sepanjang tahun.</td>
+              <td class="comments">25 comments</td>
+            </tr>
+            <tr>
+              <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>
+              <td class="grow" style="">Merancang, membangunkan dan memantau program-program Sukan Massa setiap tahun</td>
+              <td class="comments">25 comments</td>
+            </tr>
+            <tr>
+              <td class="hourglass"><i class="fa fa-hourglass-start" title="Not started"></i></td>
+              <td class="grow" style="">Mengawas dan menyelaras pembangunana kemudahan Sukan Untuk Semua setiap tahun</td>
+              <td class="comments">5 comments</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
-
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>

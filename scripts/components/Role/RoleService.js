@@ -1,6 +1,6 @@
 /*
     Created by jebat on 19/11/2015
-    Last updated by jebat on 19/11/2015
+    Last updated by jebat on 30/11/2015
     
     Description:
     This service is a Model side of MVC pattern for Authentication that will hold
@@ -10,12 +10,17 @@
 
 /*global angular*/
 'use strict';
-angular.module('AkuJanji').service('Role', [function(){
+angular.module('AkuJanji').service('Role', ['CRUD',function(CRUD){
     var self = this;
     
-    var resourceLink = '//jbase-shahfazliz.c9.io/auth/role/index.php';
-    var properties = {};
+    var resourceLink    = '//jbase-shahfazliz.c9.io/auth/role/index.php';
+    var properties      = {};
+    var initialized     = false;
     
-    self.properties = properties;
-    self.resourceLink = resourceLink;
+    self.resourceLink   = resourceLink;
+    self.properties     = properties;
+    self.initialized    = initialized;
+    
+    // Initialize Model
+    CRUD.options(self);
 }]);

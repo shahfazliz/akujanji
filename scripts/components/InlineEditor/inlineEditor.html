@@ -27,14 +27,14 @@
     </span>
     
     <span ng-show="editable" 
-          ng-init="temp=inputValue"
+          ng-init="inlineCtrlDirective.setTemporary(inputValue)"
           ng-switch="inputType">
         
         <!-- Input type = checkbox -->
         <div ng-switch-when="checkbox"
              ng-repeat="(checkboxItem, checkboxValue) in inputOptions" >
             <input type="checkbox" 
-                   ng-model="$parent.temp[checkboxItem]"
+                   ng-model="inlineCtrlDirective.temporary[checkboxItem]"
                    ng-disabled="inputDisabled"/>
             {{ checkboxItem }}
         </div>
@@ -43,7 +43,7 @@
         <div ng-switch-when="radio"
              ng-repeat="radioOption in inputOptions">
             <input type="radio"
-                   ng-model="$parent.$parent.temp"
+                   ng-model="inlineCtrlDirective.temporary"
                    value="{{ radioOption }}"
                    ng-disabled="inputDisabled"/>
             {{ radioOption }}
@@ -54,7 +54,7 @@
                 class="form-control"
                 style="width:calc(100% - 40px);display:inline;"
                 ng-options="item.label for item in inputOptions track by item.id"
-                ng-model="$parent.temp"
+                ng-model="inlineCtrlDirective.temporary"
                 ng-disabled="inputDisabled">
         </select>
         
@@ -64,7 +64,7 @@
                   style="width:calc(100% - 40px);display:inline;"
                   rows="5"
                   placeholder="{{ inputPlaceholder }}" 
-                  ng-model="$parent.temp"
+                  ng-model="inlineCtrlDirective.temporary"
                   ng-disabled="inputDisabled">
         </textarea>
                 
@@ -74,23 +74,21 @@
                class="form-control"
                style="width:calc(100% - 40px);display:inline;"
                placeholder="{{ inputPlaceholder }}"
-               ng-model="$parent.temp"
+               ng-model="inlineCtrlDirective.temporary"
                ng-disabled="inputDisabled" />
         
         <!-- Ok Glyphicon -->       
         <span class="glyphicon glyphicon-ok" 
               aria-hidden="true"
               style="vertical-align:top;padding-top:7px;"
-              ng-click="actionClick({params: [inputPlaceholder, temp]});editable=false">
+              ng-click="actionClick({params: [inputPlaceholder, inlineCtrlDirective.temporary]});editable=false">
         </span>
         
         <!-- Cancel Glyphicon-->
         <span class="glyphicon glyphicon-remove" 
               aria-hidden="true"
               style="vertical-align:top;padding:7px 0px 7px 0px;"
-              ng-click="editable=false;temp=inputValue">
+              ng-click="editable=false;inlineCtrlDirective.setTemporary(inputValue)">
         </span>
-        <div>temp: {{ temp }}</div>
-        <div>inputValue: {{ inputValue }}</div>
     </span>
 </div>

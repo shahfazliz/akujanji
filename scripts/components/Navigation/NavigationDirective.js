@@ -12,9 +12,17 @@
 angular.module('AkuJanji').directive('navigation', [function(){
     return {
         restrict: 'E',
-        controller: ['Auth',function(Auth){
+        controller: ['Auth','AuthFactory',function(Auth,AuthFactory){
             var self = this;
             self.auth = Auth.authentication;
+            
+            self.popUpLogin = function(){
+                AuthFactory.popUpLogin();
+            };
+            
+            self.popUpRegister = function(){
+                AuthFactory.popUpRegister();
+            };
         }],
         controllerAs: 'navigationCtrlDirective',
         templateUrl: '/scripts/components/Navigation/navigationBar.html'

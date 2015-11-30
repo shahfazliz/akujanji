@@ -1,34 +1,29 @@
 /*
-    Created by jebat on 16/11/2015
+    Created by jebat on 26/10/2015
     Last updated by jebat on 30/11/2015
     
     Description:
-    This service is a Model side of MVC pattern for Authentication that will hold
-    the current value of the selected User Login. The actual implementation of this 
+    This service is a Model side of MVC pattern for BajuNiaga that will hold
+    the current value of the selected Baju. The actual implementation of this 
     Model must be done on server side.
 */
 
 /*global angular*/
 'use strict';
-angular.module('AkuJanji').service('Auth', [function(){
+angular.module('AkuJanji').service('Baju', ['CRUD',function(CRUD){
     var self = this;
     
-    var resourceLink    = '//jbase-shahfazliz.c9.io/auth/index.php';
+    var resourceLink    = '//jbase-shahfazliz.c9.io/bajuniaga/baju/index.php';
     var properties      = {};
     var initialized     = false;
-    var authentication  = {
-        id      : '',
-        token   : '',
-        loggedIn: false
-    };
     
     self.resourceLink   = resourceLink;
     self.properties     = properties;
     self.initialized    = initialized;
     
-    // Extra info for this Authentication
-    self.authentication = authentication;
-    
+    // Initialize Model
+    CRUD.options(self);
+        
     // Define onChange here?
     // properties['Test Radio'].onChange = function(){
     //     alert('Hehehe');

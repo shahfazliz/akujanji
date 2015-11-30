@@ -9,10 +9,10 @@
  * Main module of the application.
  */
 /*global angular*/
-angular.module('AkuJanji', ['ngResource','ui.router'])
-  .config(['$logProvider','$stateProvider', '$urlRouterProvider', function ($logProvider, $stateProvider, $urlRouterProvider){
+angular.module('AkuJanji', ['ngResource','ui.router','ngAnimate','ui.bootstrap','nvd3'])
+  .config(['$stateProvider', '$urlRouterProvider', '$logProvider', function ($stateProvider,$urlRouterProvider,$logProvider){
     
-    $logProvider.debugEnabled(true);
+    $logProvider.debugEnabled(false);
     
     $urlRouterProvider.otherwise("/");
     
@@ -39,7 +39,7 @@ angular.module('AkuJanji', ['ngResource','ui.router'])
       
       .state('auth.register', {
         url         : '/register',
-        templateUrl : 'scripts/components/CRUD/create.html',
+        templateUrl : 'scripts/components/Auth/register.html',
         controller  : 'AuthCtrl',
         controllerAs: 'ctrl',
         data        : {
@@ -139,6 +139,59 @@ angular.module('AkuJanji', ['ngResource','ui.router'])
         controllerAs: 'ctrl',
         data        :{
           title     : 'Role',
+          debugging : false
+        }
+      })
+      
+      .state('baju', {
+        abstract    : true,
+        url         : '/baju',
+        
+        // Note: abstract still needs a ui-view for its children to populate.
+        // You can simply add it inline here.
+        template: '<ui-view/>'
+      })
+      
+      .state('baju.main', {
+        url         : '/',
+        templateUrl : 'scripts/components/Baju/main.html',
+        controller  : 'BajuCtrl',
+        controllerAs: 'ctrl',
+        data        :{
+          title     : 'Baju',
+          debugging : false
+        }
+      })
+      
+      .state('baju.create', {
+        url         : '/create',
+        templateUrl : 'scripts/components/CRUD/create.html',
+        controller  : 'BajuCtrl',
+        controllerAs: 'ctrl',
+        data        :{
+          title     : 'Create Baju',
+          debugging : false
+        }
+      })
+      
+      .state('baju.read', {
+        url         : '/read',
+        templateUrl : 'scripts/components/CRUD/read.html',
+        controller  : 'BajuCtrl',
+        controllerAs: 'ctrl',
+        data        :{
+          title     : 'Baju',
+          debugging : false
+        }
+      })
+      
+      .state('baju.read.id', {
+        url         : '/:id',
+        templateUrl : 'scripts/components/CRUD/read.html',
+        controller  : 'BajuCtrl',
+        controllerAs: 'ctrl',
+        data        :{
+          title     : 'Baju',
           debugging : false
         }
       });

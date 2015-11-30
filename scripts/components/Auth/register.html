@@ -1,5 +1,5 @@
-<h3 style='padding-left:20px;'>Login</h3>
-<form class="form-horizontal" style='height:150px;'>
+<h3 style='padding-left:20px;'>Register</h3>
+<form class="form-horizontal" style='height:250px;'>
     
     <div class="col-xs-12">
         <div class="form-group">
@@ -40,10 +40,16 @@
         
         <div class="form-group">
             <div class="col-xs-offset-{{ ctrl.style.labelClassWidth }} col-xs-{{ ctrl.style.inputClassWidth }}">
+                <script src='https://www.google.com/recaptcha/api.js'></script>
+                <div class="g-recaptcha" data-sitekey="{{ ctrl.recaptcha.sitekey }}"></div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-offset-{{ ctrl.style.labelClassWidth }} col-xs-{{ ctrl.style.inputClassWidth }}">
                 <button type="submit" 
-                        class="btn btn-default" 
-                        ng-click="ctrl.onClick('Login')">
-                    Login
+                        class="btn btn-default"
+                        ng-click="ctrl.onClick('Create')">
+                    Register
                 </button>
             </div>
         </div>
