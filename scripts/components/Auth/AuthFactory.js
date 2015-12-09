@@ -1,6 +1,6 @@
 /*
     Created by jebat on 22/11/2015
-    Last updated by jebat on 30/11/2015
+    Last updated by jebat on 03/12/2015
     
     Description:
     This factory is a Model's basic actions for Authentication.
@@ -12,21 +12,23 @@ angular.module('AkuJanji').factory('AuthFactory', ['Auth','$log','$uibModal', fu
     var uibModalObject;
     
     return {
-        setLoggedin : function(id, token){
+        setLoggedin : function(id, token, roles){
             Auth.properties.Username.value = '';
             Auth.properties.Password.value = '';
             
-            Auth.authentication.id = id;
-            Auth.authentication.token = token;
-            Auth.authentication.loggedIn = true;
+            Auth.authentication.id          = id;
+            Auth.authentication.token       = token;
+            Auth.authentication.roles       = roles;
+            Auth.authentication.loggedIn    = true;
             
             $log.info('Logged in: ', Auth.authentication);
         },
         
         setLoggedOut : function(){
-            Auth.authentication.id = '';
-            Auth.authentication.token = '';
-            Auth.authentication.loggedIn = false;
+            Auth.authentication.id          = '';
+            Auth.authentication.token       = '';
+            Auth.authentication.roles       = '';
+            Auth.authentication.loggedIn    = false;
             
             $log.info('Logged out: ', Auth.authentication);
         },

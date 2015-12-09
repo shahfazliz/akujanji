@@ -31,7 +31,7 @@
             <li ui-sref-active="active"><a ui-sref="contact" style='color:white;'>Contact Us</a></li>
 
             <li ng-show="navigationCtrlDirective.auth.loggedIn" ui-sref-active="active"><a ui-sref="baju.main" style='color:white;'>Baju</a></li>
-            <li ng-show="navigationCtrlDirective.auth.loggedIn" ui-sref-active="active"><a ui-sref="role.read.id({id:10})" style='color:white;'>Role</a></li>
+            <li ng-show="navigationCtrlDirective.auth.loggedIn" ui-sref-active="active"><a ui-sref="role.main" style='color:white;'>Role</a></li>
 
             <li ng-hide="navigationCtrlDirective.auth.loggedIn"><a href='' ng-click="navigationCtrlDirective.popUpLogin()" style='color:white;'>Login</a></li>
             <li ng-hide="navigationCtrlDirective.auth.loggedIn"><a href='' ng-click="navigationCtrlDirective.popUpRegister()" style='color:white;'>Register</a></li>

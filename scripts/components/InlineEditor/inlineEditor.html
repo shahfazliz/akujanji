@@ -19,7 +19,9 @@
         <!-- Other Input types -->
         <span ng-switch-default>{{ inputValue }}</span>
         
-        <span class="glyphicon glyphicon-pencil" 
+        <span showRole='{{ctrl.model.name}}' 
+              action-type='Edit (owner)'
+              class="glyphicon glyphicon-pencil" 
               aria-hidden="true"
               ng-show="pencil"
               ng-click="editable=true" style='width:15px;'>

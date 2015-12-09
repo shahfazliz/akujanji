@@ -1,6 +1,6 @@
 /*
     Created by jebat on 19/11/2015
-    Last updated by jebat on 19/11/2015
+    Last updated by jebat on 02/12/2015
     
     Description:
     This controller is a View Model side of MVVM pattern for Role that will
@@ -11,6 +11,19 @@
 'use strict';
 angular.module('AkuJanji').controller('RoleCtrl', ['$log','$state','Role','CRUD',function($log,$state,Role,CRUD){
     var self = this;
+    var notification = {
+        display : false,
+        type    : '',
+        message : ''
+    };
+    
+    self.notification = notification;
+    
+    var popNotification = function(type, message){
+        notification.display = true;
+        notification.type    = type;
+        notification.message = message;
+    };
     
     self.title      = $state.current.data.title;
     self.debugging  = $state.current.data.debugging;
@@ -84,5 +97,5 @@ angular.module('AkuJanji').controller('RoleCtrl', ['$log','$state','Role','CRUD'
     };
     
     // Initialize Model
-    if($state.params) CRUD.read(self.model, $state.params);
+    if($state.params) actions.Read($state.params);
 }]);

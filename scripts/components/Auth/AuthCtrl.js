@@ -1,6 +1,6 @@
 /*
     Created by jebat on 16/11/2015
-    Last updated by jebat on 27/11/2015
+    Last updated by jebat on 09/12/2015
     
     Description:
     This controller is a View Model side of MVVM pattern for Auth that will
@@ -9,11 +9,36 @@
 
 /*global angular*/
 'use strict';
-angular.module('AkuJanji').controller('AuthCtrl', ['$log','$state','Auth','AuthFactory','CRUD',function($log,$state,Auth,AuthFactory,CRUD){
+angular.module('AkuJanji').controller('AuthCtrl', ['$log','$window','$state','$stateParams','$location','Auth','AuthFactory','CRUD',function($log,$window,$state,$stateParams,$location,Auth,AuthFactory,CRUD){
     var self = this;
+    var notification = {
+        display : false,
+        type    : '',
+        message : ''
+    };
     
-    self.title      = $state.current.data.title;
-    self.debugging  = $state.current.data.debugging;
+    self.notification = notification;
+    
+    var popNotification = function(type, message){
+        notification.display = true;
+        notification.type    = type;
+        notification.message = message;
+    };
+    
+    // self.title      = $state.current.data.title;
+    // self.debugging  = $state.current.data.debugging;
+        
+    try{
+        self.title      = $state.current.data.title;
+        self.debugging  = $state.current.data.debugging;
+    
+    // $state.current may not have any data because $stateChangeStart may have
+    // block it from getting the proper initialization duit to unauthorized access
+    }catch(err){
+        self.title      = '';
+        self.debugging  = false;
+    }
+    
     self.model      = Auth;
     self.style      = {
         imageClassWidth: 3,
@@ -32,6 +57,8 @@ angular.module('AkuJanji').controller('AuthCtrl', ['$log','$state','Auth','AuthF
     var actions = {
         // Login
         Login : function(){
+            popNotification('alert', 'Please wait..');
+            
             CRUD.update(self.model, {
                 Username : self.model.properties.Username.value,
                 Password : self.model.properties.Password.value
@@ -42,11 +69,16 @@ angular.module('AkuJanji').controller('AuthCtrl', ['$log','$state','Auth','AuthF
                     
                     if(sucessData.id && sucessData.APIToken){
                         $log.info('Login sucess');
-                        AuthFactory.setLoggedin(sucessData.id, sucessData.APIToken);
+                        AuthFactory.setLoggedin(sucessData.id, sucessData.APIToken, sucessData.Roles);
                         AuthFactory.popDownLogin();
-                        // $state.go('home');
+                        
+                        if($stateParams.toState){
+                            $state.go($stateParams.toState, $stateParams.toParams);
+                        }
+                        else $state.reload();
                     }
                     else{
+                        popNotification('error', 'Invalid username or password');
                         $log.error('Login Error with sucessData.id: ', sucessData.id);
                         $log.error('Login Error with sucessData.APIToken: ', sucessData.APIToken);
                     }

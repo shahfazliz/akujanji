@@ -1,6 +1,6 @@
 /*
     Created by jebat on 26/10/2015
-    Last updated by jebat on 30/11/2015
+    Last updated by jebat on 01/12/2015
     
     Description:
     This factory is a Model's basic actions for BajuNiaga that should will hold
@@ -91,6 +91,10 @@ angular.module('AkuJanji').factory('CRUD', ['$log','Auth','$resource','$http','$
                         });
                         model.initialized = true;
                     }
+                    
+                    // More than one data in the sucessData array
+                    else{}
+                    
                     runCallback(callbackSucess, sucessData);
                 },
                 function(failData){

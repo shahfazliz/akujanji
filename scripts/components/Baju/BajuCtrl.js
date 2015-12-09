@@ -1,6 +1,6 @@
 /*
     Created by jebat on 26/10/2015
-    Last updated by jebat on 27/11/2015
+    Last updated by jebat on 02/12/2015
     
     Description:
     This controller is a View Model side of MVVM pattern for BajuNiaga that will
@@ -11,6 +11,19 @@
 'use strict';
 angular.module('AkuJanji').controller('BajuCtrl', ['$log','$state','Baju','CRUD',function($log,$state,Baju,CRUD){
     var self = this;
+    var notification = {
+        display : false,
+        type    : '',
+        message : ''
+    };
+    
+    self.notification = notification;
+    
+    var popNotification = function(type, message){
+        notification.display = true;
+        notification.type    = type;
+        notification.message = message;
+    };
     
     self.title      = $state.current.data.title;
     self.debugging  = $state.current.data.debugging;
